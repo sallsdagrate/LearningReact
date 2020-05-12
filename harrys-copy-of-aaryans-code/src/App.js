@@ -13,7 +13,7 @@ import phone from './images/phone.jpg'
 import speaker from './images/speaker.jpg'
 import headphones from './images/headphones.jpg'
 import Loader from "./components/Loader"
-import getProducts from "./getProducts"
+import { getProducts, getProductsFromAPI, getProductsAsync } from "./getProducts"
 /**@jsx jsx */
 const App = () => {
   var [basket, setBasket] = useState(false)
@@ -28,9 +28,21 @@ const App = () => {
 
   const [products, setProducts] = useState([])
   useEffect(()=>{
-    let p = getProducts()
-    setProducts(p)
-  })
+    //hard coded
+    // let p = getProducts()
+    // console.log('products from API:', p)
+    // setProducts(p)
+
+    // returns promise
+    // getProductsFromAPI()
+    // .then(p=>{setProducts(p)})
+    // .then(sidocsmd)
+    // .catch(err=>{console.log('hereis the problem:', err)})
+
+    getProductsAsync()
+    .then(p=>{setProducts(p)})
+    
+  }, [])
 
   console.log(products)
   return (
