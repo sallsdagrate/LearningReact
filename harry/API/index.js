@@ -1,8 +1,8 @@
 const server = require('server') // import server
+
 const corsExpress = require('cors')({
     methods: ['GET']
 })
-
 const cors = server.utils.modern(corsExpress)
 
 const { get, post } = server.router
